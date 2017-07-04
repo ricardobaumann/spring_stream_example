@@ -12,6 +12,7 @@
         <module>proxy</module>
         <module>contentpumper</module>
         <module>contentconsumer</module>
+        <module>lookupservice</module>
     </modules>
     <packaging>pom</packaging>
 

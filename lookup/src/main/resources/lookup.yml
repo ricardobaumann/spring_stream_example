@@ -2,22 +2,22 @@
 spring:
   profiles: default
   application:
-     name: contentpumper  # Service registers under this name
+     name: lookup  # Service registers under this name
   cloud:
-      stream:
-        bindings:
-          contentChannel:
-            binder: rabbit
-            destination: work.exchange
-            contentType: application/json
-            #group: contentconsumer, lookup
+    stream:
+      bindings:
+        contentChannel:
+          binder: rabbit
+          destination: work.exchange
+          contentType: application/json
+          group: lookup
   rabbitmq:
       password: "rabbitmq"
       username: "rabbitmq"
 
 # HTTP Server
 server:
-  port: 8081   # HTTP (Tomcat) port
+  port: 8083   # HTTP (Tomcat) port
 
 ribbon:
   eureka:

@@ -2,20 +2,21 @@ package contentplatform;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Repository
 public class CacheRepo {
 
-    private Map<String, ContentUnit> unitMap = new HashMap<>();
+    private final ContentUnitRepo contentUnitRepo;
+
+    CacheRepo(final ContentUnitRepo contentUnitRepo) {
+        this.contentUnitRepo = contentUnitRepo;
+    }
 
     void save(final ContentUnit contentUnit) {
-        unitMap.put(contentUnit.getId(), contentUnit);
+        contentUnitRepo.save(contentUnit);
     }
 
     ContentUnit get(final String id) {
-        return unitMap.get(id);
+        return contentUnitRepo.findOne(id);
     }
 
 }

@@ -12,7 +12,7 @@
         <module>proxy</module>
         <module>contentpumper</module>
         <module>contentconsumer</module>
-        <module>lookupservice</module>
+        <module>lookup</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -36,12 +36,6 @@
         </dependency>
 
         <dependency>
-            <!-- Setup Spring Data common components -->
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
-        </dependency>
-
-        <dependency>
             <!-- Testing starter -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -52,7 +46,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter</artifactId>
         </dependency>
-
+        
         <dependency>
             <!-- Eureka service registration -->
             <groupId>org.springframework.cloud</groupId>

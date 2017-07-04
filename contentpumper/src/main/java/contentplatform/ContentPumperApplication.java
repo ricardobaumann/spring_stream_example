@@ -27,7 +27,7 @@ public class ContentPumperApplication {
     @Scheduled(fixedDelay = 1000)
     public void pump() {
         final String id = UUID.randomUUID().toString();
-        contentUnitGateway.generate(new ContentUnit(id, String.format("content id %s", id)));
+        contentUnitGateway.generate(new ContentUnit(id, String.format("{\"id\" : \"%s\"}", id)));
     }
 
 }

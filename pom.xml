@@ -13,6 +13,7 @@
         <module>contentpumper</module>
         <module>contentconsumer</module>
         <module>lookup</module>
+        <module>search</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -46,7 +47,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter</artifactId>
         </dependency>
-        
+
         <dependency>
             <!-- Eureka service registration -->
             <groupId>org.springframework.cloud</groupId>

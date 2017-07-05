@@ -10,6 +10,10 @@
     <modules>
         <module>register</module>
         <module>proxy</module>
+        <module>contentpumper</module>
+        <module>contentconsumer</module>
+        <module>lookup</module>
+        <module>search</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -30,12 +34,6 @@
             <!-- Setup Spring MVC & REST, use Embedded Tomcat -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <!-- Setup Spring Data common components -->
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
         </dependency>
 
         <dependency>
@@ -70,7 +68,6 @@
             </plugin>
         </plugins>
     </build>
-
 
 
 </project>

@@ -3,13 +3,8 @@ package contentplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class ContentUnit {
 
-    @Id
     private String id;
     private String body;
 

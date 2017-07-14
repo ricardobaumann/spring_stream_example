@@ -1,0 +1,34 @@
+# Spring properties
+spring:
+  profiles: default
+  application:
+     name: pusher  # Service registers under this name
+  cloud:
+      stream:
+        bindings:
+          contentChannel:
+            binder: rabbit
+            destination: work.exchange
+            contentType: application/json
+            group: pusher
+  rabbitmq:
+      password: "rabbitmq"
+      username: "rabbitmq"
+
+# HTTP Server
+server:
+  port: 6565   # HTTP (Tomcat) port
+
+ribbon:
+  eureka:
+    enabled: true
+
+# Discovery Server Access
+#  1. DEV ONLY: Reduce the lease renewal interval to speed up registration
+#  2. Define URL of registration server (defaultZone)
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 30   # DO NOT DO THIS IN PRODUCTION

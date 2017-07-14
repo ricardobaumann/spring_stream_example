@@ -18,14 +18,7 @@ public class ContentConsumer {
     @StreamListener(ContentUnitsSink.CHANNEL_NAME)
     public void process(final ContentUnit workUnit) {
         LOGGER.info("Handling content - id: {}, definition: {}", workUnit.getId(), workUnit.getBody());
-        try {
-            pushMessage(workUnit);
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
+        messageController.broacast(workUnit.getBody());
     }
 
-    public void pushMessage(final ContentUnit workUnit) throws Exception {
-        messageController.greeting(workUnit);
-    }
 }

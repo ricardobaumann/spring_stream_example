@@ -1,4 +1,4 @@
-# String Simple Content Platform
+# Simple Spring Stream message producer/consumer
 
 A simple example of a stream/message oriented architecture. It includes the following microservices
 

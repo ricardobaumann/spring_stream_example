@@ -14,15 +14,30 @@ services:
   eventsource:
     build: eventsource
     hostname: "eventsource"
+    environment:
+      EUREKAHOST:  "register"
     depends_on:
       - rabbit
+      - register
   eventconsumer_abc:
     build: eventconsumer_abc
     hostname: "eventconsumer_abc"
     depends_on:
       - rabbit
+      - register
+    environment:
+      EUREKAHOST:  "register"
   eventconsumer_xyz:
       build: eventconsumer_xyz
       hostname: "eventconsumer_xyz"
       depends_on:
         - rabbit
+        - register
+      environment:
+        EUREKAHOST:  "register"
+  register:
+    build: register
+    hostname: "register"
+    ports:
+      - 1111
+

@@ -11,5 +11,7 @@
 
     <artifactId>register</artifactId>
 
-
+    <build>
+        <finalName>${project.name}</finalName>
+    </build>
 </project>

@@ -27,9 +27,14 @@ public class EventSourceApplication implements Loggable {
 
     @Scheduled(fixedDelay = 1000)
     public void pump() {
-        final Integer id = ATOMIC_INTEGER.getAndIncrement();
-        logger().info("Generating message with id {}", id);
-        contentUnitGateway.generateFoChannelA(new Message(id, "test message A"));
-        contentUnitGateway.generateFoChannelB(new Message(id, "test message B"));
+        contentUnitGateway.generateFoChannelA(new Message(id(), "test message for channel A"));
+        contentUnitGateway.generateFoChannelB(new Message(id(), "test message for channel B"));
+        final Integer sameId = id();
+        contentUnitGateway.generateFoChannelA(new Message(sameId, "test message for both channels"));
+        contentUnitGateway.generateFoChannelB(new Message(sameId, "test message for both channels"));
+    }
+
+    private Integer id() {
+        return ATOMIC_INTEGER.getAndIncrement();
     }
 }

@@ -15,6 +15,9 @@
         <module>lookup</module>
         <module>search</module>
         <module>pusher</module>
+        <module>eventsource</module>
+        <module>eventconsumer_abc</module>
+        <module>eventconsumer_xyz</module>
     </modules>
     <packaging>pom</packaging>
 

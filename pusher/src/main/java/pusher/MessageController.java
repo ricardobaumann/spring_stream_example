@@ -15,7 +15,7 @@ public class MessageController {
 
     @GetMapping("/messages")
     public SseEmitter handle() {
-        final SseEmitter emitter = new SseEmitter();
+        final SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
         this.emitters.add(emitter);
 
         emitter.onCompletion(() -> this.emitters.remove(emitter));
@@ -28,7 +28,7 @@ public class MessageController {
         return emitter;
     }
 
-    public void broacast(final String message) {
+    void broacast(final String message) {
         emitters.forEach(sseEmitter -> {
             try {
                 sseEmitter.send(message);

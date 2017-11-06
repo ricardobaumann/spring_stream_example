@@ -1,0 +1,28 @@
+version: '2'
+services:
+  rabbit:
+    image: "rabbitmq:3-management"
+    hostname: "rabbit1"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  eventsource:
+    build: eventsource
+    hostname: "eventsource"
+    depends_on:
+      - rabbit
+  eventconsumer_abc:
+    build: eventconsumer_abc
+    hostname: "eventconsumer_abc"
+    depends_on:
+      - rabbit
+  eventconsumer_xyz:
+      build: eventconsumer_xyz
+      hostname: "eventconsumer_xyz"
+      depends_on:
+        - rabbit

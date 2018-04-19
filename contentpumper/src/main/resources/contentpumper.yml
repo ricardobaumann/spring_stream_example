@@ -17,7 +17,7 @@ spring:
 
 # HTTP Server
 server:
-  port: 8081   # HTTP (Tomcat) port
+  port: 8091   # HTTP (Tomcat) port
 
 ribbon:
   eureka:

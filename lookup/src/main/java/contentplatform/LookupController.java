@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, path = "content/{id}")
 public class LookupController {
 
 
@@ -17,7 +16,7 @@ public class LookupController {
         this.cacheRepo = cacheRepo;
     }
 
-    @GetMapping
+    @GetMapping("content/{id}")
     public Object get(@PathVariable final String id) {
         return cacheRepo.get(id);
     }
